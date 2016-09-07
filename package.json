@@ -1,0 +1,28 @@
+{
+  "name": "midibus.js",
+  "version": "0.1.0",
+  "scripts": {
+    "build-module": "browserify src/midi.js > index.js && uglifyjs index.js -c -m > index.min.js",
+    "build-example": "browserify example/index.js > example/bundle.js",
+    "build": "npm run build-module && npm run build-example",
+    "start": "budo example/index.js:bundle.js -P -l -d example"
+  },
+  "main": "index.js",
+  "author": "pqml",
+  "license": "MIT",
+  "directories": {
+    "example": "example"
+  },
+  "dependencies": {
+    "tiny-emitter": "^1.1.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "budo": "^9.0.0",
+    "uglify-js": "^2.7.3"
+  },
+  "browserify": {
+    "transform": []
+  },
+  "description": "Web MIDI API wrapper based on themidibus :bus::dash::notes::notes:"
+}
