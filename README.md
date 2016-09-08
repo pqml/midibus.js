@@ -52,7 +52,7 @@ midi.on('ready', () => {
   })
 
 })
-``
+```
 
 
 ### License
