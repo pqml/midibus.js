@@ -44,7 +44,7 @@ midi.on('ready', () => {
   const magicBus = midi.bus(midi.inputs[0], midi.outputs[0])
 
   // You can also omit the input or the output parameter
-  const myKeyBoard = midi.bus(midi.inputs[0], null)
+  const myKeyBoard = midi.bus(midi.inputs[1], null)
 
   // When a kb note is received, pipe it to magicBus, with a constant velocity
   myKeyBoard.on('noteOn', function (message) {
