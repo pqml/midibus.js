@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict'
 
-var midi = require('./../src/midi')
+var midi = require('./../src/midi.js')
 var ableton = null
 var keyboard = null
 
@@ -27,7 +27,7 @@ midi.once('ready', function () {
   })
 })
 
-},{"./../src/midi":5}],2:[function(require,module,exports){
+},{"./../src/midi.js":5}],2:[function(require,module,exports){
 function E () {
   // Keep this empty so it's easier to inherit from
   // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
@@ -161,8 +161,8 @@ module.exports = message
 },{}],5:[function(require,module,exports){
 'use strict'
 
-var bus = require('./bus')
-var message = require('./message')
+var bus = require('./bus.js')
+var message = require('./message.js')
 var Emitter = require('tiny-emitter')
 var emitter = new Emitter()
 
@@ -174,8 +174,8 @@ var outputs = []
 if (isSupported) navigator.requestMIDIAccess().then(onAccess, onAccessError)
 
 function onAccess (midiAccess) {
-  for (var input of midiAccess.inputs.values()) { inputs.push(input) }
-  for (var output of midiAccess.outputs.values()) { outputs.push(output) }
+  midiAccess.inputs.forEach(function (el) { inputs.push(el) })
+  midiAccess.outputs.forEach(function (el) { outputs.push(el) })
   isReady = true
   emitter.emit('ready')
 }
@@ -200,4 +200,4 @@ module.exports = {
   once: emitter.once.bind(emitter)
 }
 
-},{"./bus":3,"./message":4,"tiny-emitter":2}]},{},[1]);
+},{"./bus.js":3,"./message.js":4,"tiny-emitter":2}]},{},[1]);

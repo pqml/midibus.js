@@ -1,6 +1,6 @@
 'use strict'
 
-var midi = require('./../src/midi')
+var midi = require('./../index.js')
 var ableton = null
 var keyboard = null
 

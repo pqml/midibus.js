@@ -1,8 +1,8 @@
 {
   "name": "midibus.js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "scripts": {
-    "build-module": "browserify src/midi.js > index.js && uglifyjs index.js -c -m > index.min.js",
+    "build-module": "browserify --standalone midibus index.js | uglifyjs -c -m > index.min.js",
     "build-example": "browserify example/index.js > example/bundle.js",
     "build": "npm run build-module && npm run build-example",
     "start": "budo example/index.js:bundle.js -P -l -d example"

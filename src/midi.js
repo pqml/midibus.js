@@ -1,7 +1,7 @@
 'use strict'
 
-var bus = require('./bus')
-var message = require('./message')
+var bus = require('./bus.js')
+var message = require('./message.js')
 var Emitter = require('tiny-emitter')
 var emitter = new Emitter()
 
@@ -13,8 +13,8 @@ var outputs = []
 if (isSupported) navigator.requestMIDIAccess().then(onAccess, onAccessError)
 
 function onAccess (midiAccess) {
-  for (var input of midiAccess.inputs.values()) { inputs.push(input) }
-  for (var output of midiAccess.outputs.values()) { outputs.push(output) }
+  midiAccess.inputs.forEach(function (el) { inputs.push(el) })
+  midiAccess.outputs.forEach(function (el) { outputs.push(el) })
   isReady = true
   emitter.emit('ready')
 }
