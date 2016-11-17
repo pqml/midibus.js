@@ -47,8 +47,8 @@ midi.on('ready', () => {
   const myKeyBoard = midi.bus(midi.inputs[1], null)
 
   // When a kb note is received, pipe it to magicBus, with a constant velocity
-  myKeyBoard.on('noteOn', function (message) {
-    magicBus.send('noteOn', midi.msg(message.channel, message.pitch, 80))
+  myKeyBoard.on('noteOn', ({channel, pitch}) => {
+    magicBus.send('noteOn', midi.msg(channel, pitch, 80))
   })
 
 })
