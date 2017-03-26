@@ -1,7 +1,7 @@
 {
   "name": "midibus",
   "description": "Web MIDI API wrapper based on themidibus",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "pqml",
   "main": "build/midibus.js",
   "browser": "build/midibus.umd.min.js",
