@@ -34,5 +34,13 @@
     "rulo": "^0.4.0",
     "snazzy": "^6.0.0",
     "uglifyjs": "^2.4.10"
-  }
+  },
+  "keywords": [
+    "midi",
+    "webmidiapi",
+    "music",
+    "ableton",
+    "midiapi",
+    "themidibus"
+  ]
 }

@@ -1,5 +1,5 @@
 # midibus.js
-### Web MIDI API wrapper based on themidibus
+:bus::dash::notes: Web MIDI API wrapper based on themidibus
 
 <br><br>
 
