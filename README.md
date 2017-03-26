@@ -40,7 +40,7 @@ var midi = require('midibus.js')
 const midi = require('midibus.js')
 
 // Assure that the browser have gained access to the MIDI interface
-midi.on('ready', (err) => {
+midi.access((err) => {
   // Catch Error
   if (err) throw err
 
