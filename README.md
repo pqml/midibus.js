@@ -1,5 +1,9 @@
-# midibus.js
-:bus::dash::notes: Web MIDI API wrapper based on themidibus
+# midibus
+:bus::dash::notes: Web MIDI API wrapper based on [themidibus](https://github.com/sparks/themidibus)
+
+<br><br>
+
+#### :globe_with_meridians: Example available on [http://pqml.github.io/midibus.js/](http://pqml.github.io/midibus.js/) :globe_with_meridians:
 
 <br><br>
 
@@ -8,28 +12,28 @@
 ##### Installation from npm
 ```sh
 # using npm
-$ npm install --save midibus.js
+$ npm install --save midibus
 
 # or using yarn
-$ yarn add midibus.js
+$ yarn add midibus
 ```
 
 ##### Usage with a module bundler
 ```js
 // using ES6 modules
-import * as midi from 'midibus.js'
+import * as midi from 'midibus'
 
 // using CommonJS modules
-var midi = require('midibus.js')
+var midi = require('midibus')
 ```
 
 ##### Usage from a browser
 
 ```html
-<script src="https://unpkg.com/midibus.js"></script>
+<script src="https://unpkg.com/midibus"></script>
 <script>
-  // You can find the library in window.Midibus
-  Midibus.access(function() {})
+  // You can find the library in window.midibus
+  midibus.access(function() {})
 </script>
 ```
 
@@ -37,7 +41,7 @@ var midi = require('midibus.js')
 
 ### Example
 ```js
-const midi = require('midibus.js')
+const midi = require('midibus')
 
 // Assure that the browser have gained access to the MIDI interface
 midi.access((err) => {

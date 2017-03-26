@@ -41,22 +41,22 @@
         p.innerHTML = msg
         main.appendChild(p)
       }
-      Midibus.access(function () {
+      midibus.access(function () {
         log('Access granted<br><br>')
 
         let inputsLog = 'inputs: '
-        Midibus.inputs.forEach((el, i) => { inputsLog += el.name + (Midibus.inputs[i+1] ? ', ' : '') })
+        midibus.inputs.forEach((el, i) => { inputsLog += el.name + (midibus.inputs[i+1] ? ', ' : '') })
         log(inputsLog)
 
         let outputsLog = 'outputs: '
-        Midibus.inputs.forEach((el, i) => { outputsLog += el.name + (Midibus.outputs[i+1] ? ', ' : '') })
+        midibus.inputs.forEach((el, i) => { outputsLog += el.name + (midibus.outputs[i+1] ? ', ' : '') })
         log(outputsLog + '<br><br>')
 
-        log('Start emiting C3 note every seconds to ' + Midibus.outputs[0].name)
+        log('Start emiting C3 note every seconds to ' + midibus.outputs[0].name)
 
-        var bus = Midibus.bus(Midibus.inputs[0], Midibus.outputs[0])
+        var bus = midibus.bus(midibus.inputs[0], midibus.outputs[0])
         window.setInterval(function () {
-          bus.send('noteOff', Midibus.message(0, 60, 100))
+          bus.send('noteOff', midibus.message(0, 60, 100))
         }, 1000)
       })
     </script>

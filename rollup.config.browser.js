@@ -14,7 +14,7 @@ config.targets = [
   {
     format: 'umd',
     dest: 'build/midibus.umd.js',
-    moduleName: 'Midibus'
+    moduleName: 'midibus'
   }
 ]
 

@@ -3,7 +3,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 
 const rollupConfig = {
-  entry: 'src/midi.js',
+  entry: 'src/midibus.js',
   plugins: [
     nodeResolve({
       main: true,
