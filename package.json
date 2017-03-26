@@ -11,7 +11,7 @@
     "test": "snazzy src",
     "deploy": "ghp example",
     "build": "rollup -c && rollup -c rollup.config.browser.js && uglifyjs build/midibus.umd.js -c -m > build/midibus.umd.min.js",
-    "dev": "rulo -i src/midi.js -o midibus.umd.js -f umd -d example -n midibus -W -c rollup.config.browser.js -- -m"
+    "dev": "rulo -i src/midibus.js -o midibus.umd.js -f umd -d example -n midibus -W -c rollup.config.browser.js -- -m"
   },
   "directories": {
     "example": "example"
