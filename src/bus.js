@@ -13,10 +13,11 @@ function bus (input, output) {
     throw new Error('A bus needs a least an input or an output device')
   }
 
-  const emitter = mitt()
+  let emitter = mitt()
   if (input) input.onmidimessage = onMessage
 
   emitter.send = send
+  emitter.destroy = destroy
   return emitter
 
   function onMessage (e) {
@@ -41,6 +42,16 @@ function bus (input, output) {
       msg.pitch,
       msg.velocity
     ])
+  }
+
+  function destroy () {
+    if (input) input.onmidimessage = undefined
+    input = undefined
+    output = undefined
+    emitter.on = undefined
+    emitter.off = undefined
+    emitter.emit = undefined
+    emitter = undefined
   }
 }
 
