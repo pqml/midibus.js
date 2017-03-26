@@ -1,0 +1,38 @@
+{
+  "name": "midibus.js",
+  "description": "Web MIDI API wrapper based on themidibus",
+  "version": "0.2.0",
+  "author": "pqml",
+  "main": "build/midibus.js",
+  "browser": "build/midibus.umd.min.js",
+  "module": "build/midibus.es.js",
+  "jsnext:main": "build/midibus.es.js",
+  "scripts": {
+    "test": "snazzy src",
+    "deploy": "ghp example",
+    "build": "rollup -c && rollup -c rollup.config.browser.js && uglifyjs build/midibus.umd.js -c -m > build/midibus.umd.min.js",
+    "dev": "rulo -i src/midi.js -o midibus.umd.js -f umd -d example -n Midibus -W -c rollup.config.browser.js -- -m"
+  },
+  "directories": {
+    "doc": "docs",
+    "example": "example",
+    "test": "test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mitt": "^1.1.0",
+    "rollup-plugin-commonjs": "^8.0.2"
+  },
+  "devDependencies": {
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.0",
+    "ghp": "^1.1.3",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rulo": "^0.4.0",
+    "snazzy": "^6.0.0",
+    "uglifyjs": "^2.4.10"
+  }
+}

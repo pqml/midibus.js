@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>midibus.js</title>
+    <meta name="description" content="Web MIDI API wrapper based on themidibus">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimal-ui">
+    <style>
+      body {
+        margin: 30px;
+        font-family: sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+      }
+      a {
+        text-decoration: none;
+      }
+      h1 {
+        font-weight: inherit;
+        font-size: 2em;
+      }
+      h2 {
+        font-weight: inherit;
+        font-size: inherit;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 50px;
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1><a href="https://github.com/pqml/midibus.js">midibus.js</a></h1>
+      <h2>Web MIDI API wrapper based on themidibus</h2>
+    </main>
+    <script src="midibus.umd.js"></script>
+    <script>
+      var main = document.getElementsByTagName('main')[0]
+      function log(msg) {
+        var p = document.createElement('p')
+        p.innerHTML = msg
+        main.appendChild(p)
+      }
+      Midibus.access(function () {
+        log('Access granted<br><br>')
+
+        let inputsLog = 'inputs: '
+        Midibus.inputs.forEach((el, i) => { inputsLog += el.name + (Midibus.inputs[i+1] ? ', ' : '') })
+        log(inputsLog)
+
+        let outputsLog = 'outputs: '
+        Midibus.inputs.forEach((el, i) => { outputsLog += el.name + (Midibus.outputs[i+1] ? ', ' : '') })
+        log(outputsLog + '<br><br>')
+
+        log('Start emiting C3 note every seconds to ' + Midibus.outputs[0].name)
+
+        var bus = Midibus.bus(Midibus.inputs[0], Midibus.outputs[0])
+        window.setInterval(function () {
+          bus.send('noteOff', Midibus.message(0, 60, 100))
+        }, 1000)
+      })
+    </script>
+  </body>
+</html>
