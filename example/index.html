@@ -58,6 +58,11 @@
         window.setInterval(function () {
           bus.send('noteOff', midibus.message(0, 60, 100))
         }, 1000)
+
+        window.setTimeout(function () {
+          log('<br>Destroying the bus')
+          bus.destroy()
+        }, 5000)
       })
     </script>
   </body>

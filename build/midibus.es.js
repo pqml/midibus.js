@@ -25,6 +25,7 @@ function bus(input, output) {
   if (input) input.onmidimessage = onMessage;
 
   emitter.send = send;
+  emitter.destroy = destroy;
   return emitter;
 
   function onMessage(e) {
@@ -49,6 +50,16 @@ function bus(input, output) {
   function send(cmd, msg) {
     if (!output) return;
     output.send([PACKETS[cmd] ? PACKETS[cmd] + msg.channel : msg.channel, msg.pitch, msg.velocity]);
+  }
+
+  function destroy() {
+    if (input) input.onmidimessage = undefined;
+    input = undefined;
+    output = undefined;
+    emitter.on = undefined;
+    emitter.off = undefined;
+    emitter.emit = undefined;
+    emitter = undefined;
   }
 }
 
